@@ -94,6 +94,17 @@ export function TechIcon({ name, className = "h-4 w-4", size = 16 }: TechIconPro
     );
   }
 
+  // Node.js
+  if (normalized.includes("node.js") || normalized.includes("nodejs") || normalized === "node") {
+    return (
+      <svg className={className} width={size} height={size} viewBox="0 0 128 128" fill="none">
+        <path d="M64 6L12 36v56l52 30 52-30V36L64 6z" fill="#339933"/>
+        <path d="M64 128L12 98V36l52 30v62zm0 0l52-30V36L64 66v62z" fill="#66CC33" opacity="0.6"/>
+        <text x="64" y="78" textAnchor="middle" fill="#FFFFFF" fontWeight="bold" fontSize="28">N</text>
+      </svg>
+    );
+  }
+
   // Express / Express.js
   if (normalized.includes("express")) {
     return (

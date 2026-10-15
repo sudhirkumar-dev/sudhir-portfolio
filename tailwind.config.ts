@@ -10,12 +10,15 @@ const config: Config = {
         ink: "var(--ink)",
         mute: "var(--mute)",
         line: "var(--line)",
+        "line-bright": "var(--line-bright)",
         accent: "var(--accent)",
+        "accent-violet": "var(--accent-violet)",
+        "accent-cyan": "var(--accent-cyan)",
         soft: "var(--soft)",
       },
       fontFamily: {
-        sans: ["Inter Variable", "system-ui", "sans-serif"],
-        display: ["Fraunces Variable", "Georgia", "serif"],
+        sans: ["Plus Jakarta Sans", "Inter Variable", "system-ui", "sans-serif"],
+        display: ["Outfit", "Plus Jakarta Sans", "Inter Variable", "sans-serif"],
       },
       animation: {
         marquee: "marquee 28s linear infinite",

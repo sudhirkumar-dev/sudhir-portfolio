@@ -80,7 +80,7 @@ export function ExperienceSection() {
               <span
                 className={`absolute -left-[29px] top-1.5 flex h-6 w-6 items-center justify-center rounded-full border-2 ${
                   idx === 0
-                    ? "border-accent bg-bg shadow-[0_0_12px_rgba(16,185,129,0.5)]"
+                    ? "border-accent bg-bg shadow-[0_0_12px_rgba(42,123,255,0.5)]"
                     : "border-line bg-surface group-hover:border-accent/60"
                 }`}
                 aria-hidden
@@ -99,8 +99,8 @@ export function ExperienceSection() {
                   </h3>
                   <div className="flex items-center gap-2">
                     {idx === 0 && (
-                      <span className="inline-flex items-center gap-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-xs font-medium text-emerald-400">
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Latest Role
+                      <span className="inline-flex items-center gap-1 rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+                        <span className="h-1.5 w-1.5 rounded-full bg-accent" /> Latest Role
                       </span>
                     )}
                     {e.tag && (
@@ -222,8 +222,8 @@ export function ContactSection() {
           <div className="pointer-events-none absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-cyan-500/10 blur-3xl" />
 
           <div className="relative z-10">
-            <span className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-400">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            <span className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               Get In Touch
             </span>
 
@@ -240,7 +240,7 @@ export function ContactSection() {
               {/* Email Card */}
               <div className="flex flex-col justify-between rounded-2xl border border-line bg-surface/90 p-4 transition-all hover:border-accent/50 hover:bg-surface-hover">
                 <div className="flex items-center justify-between">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-400">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent/10 text-accent">
                     <Mail size={18} />
                   </div>
                   <button
@@ -265,7 +265,7 @@ export function ContactSection() {
 
               {/* Phone Card */}
               <div className="flex flex-col justify-between rounded-2xl border border-line bg-surface/90 p-4 transition-all hover:border-accent/50 hover:bg-surface-hover">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-500/10 text-teal-400">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-violet/10 text-accent-violet">
                   <Phone size={18} />
                 </div>
                 <div className="mt-3">
@@ -298,16 +298,16 @@ export function ContactSection() {
               </div>
 
               {/* Resume Card */}
-              <div className="flex flex-col justify-between rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-4 transition-all hover:border-accent hover:bg-emerald-500/15">
+              <div className="flex flex-col justify-between rounded-2xl border border-accent/30 bg-accent/10 p-4 transition-all hover:border-accent hover:bg-accent/15">
                 <div className="flex items-center justify-between">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-400">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent/20 text-accent">
                     <Download size={18} />
                   </div>
                   <a
                     href={site.resumeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs text-emerald-400/90 hover:underline"
+                    className="inline-flex items-center gap-1 text-xs text-accent/90 hover:underline"
                     title="View on Google Drive"
                   >
                     <span>Drive</span>
@@ -315,11 +315,11 @@ export function ContactSection() {
                   </a>
                 </div>
                 <div className="mt-3">
-                  <p className="text-xs text-emerald-400/80">Curriculum Vitae</p>
+                  <p className="text-xs text-accent/80">Curriculum Vitae</p>
                   <a
                     href={site.resumeDownload}
                     download="Sudhir_Kumar_Kalivarapu_Resume.pdf"
-                    className="text-sm font-bold text-white hover:text-emerald-300 transition-colors flex items-center gap-1.5"
+                    className="text-sm font-bold text-white hover:text-accent-cyan transition-colors flex items-center gap-1.5"
                   >
                     Download PDF <Download size={13} />
                   </a>

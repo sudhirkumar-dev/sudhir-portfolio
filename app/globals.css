@@ -1,19 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import 'devicon/devicon.min.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* Premium Dark / Black Palette */
-  --bg: #09090b;
-  --surface: #121217;
-  --surface-hover: #191922;
-  --ink: #f4f4f7;
-  --mute: #9ca3af;
-  --line: #22222a;
-  --line-bright: #32323e;
-  --accent: #10b981;
-  --accent-bright: #34d399;
-  --soft: rgba(16, 185, 129, 0.12);
+  /* Dark Tech Palette */
+  --bg: #090B10;
+  --surface: #0F1118;
+  --surface-hover: #161924;
+  --ink: #F5F7FA;
+  --mute: #A1A8B5;
+  --line: #242834;
+  --line-bright: #363D4E;
+  --accent: #2A7BFF;
+  --accent-violet: #8B5CF6;
+  --accent-cyan: #22D3EE;
+  --accent-bright: #5B9BFF;
+  --soft: rgba(42, 123, 255, 0.12);
+  --gradient-accent: linear-gradient(135deg, #2A7BFF, #8B5CF6, #22D3EE);
   color-scheme: dark;
 }
 
@@ -40,7 +46,7 @@ body {
   min-height: 100vh;
 }
 
-/* Ambient dark glow behind header/hero */
+/* Ambient dark glow behind header/hero — blue-violet tint */
 body::before {
   content: "";
   position: fixed;
@@ -49,8 +55,14 @@ body::before {
   transform: translateX(-50%);
   width: 100vw;
   max-width: 1200px;
-  height: 500px;
-  background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.08) 0%, rgba(6, 182, 212, 0.04) 40%, transparent 75%);
+  height: 600px;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(42, 123, 255, 0.06) 0%,
+    rgba(139, 92, 246, 0.04) 30%,
+    rgba(34, 211, 238, 0.02) 50%,
+    transparent 75%
+  );
   pointer-events: none;
   z-index: -1;
 }
@@ -60,18 +72,18 @@ body::before {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #09090b;
+  background: #090B10;
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #242834;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: #363D4E;
 }
 
 ::selection {
-  background: rgba(16, 185, 129, 0.3);
+  background: rgba(42, 123, 255, 0.3);
   color: #ffffff;
 }
 
@@ -83,16 +95,106 @@ body::before {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  * { animation: none !important; transition: none !important; }
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .tree-sway, .tech-float, .tree-shake { animation: none !important; transform: none !important; }
 }
 
+/* ===== Hero Entrance Animations ===== */
 @keyframes rise {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: none; }
 }
-.hero-in { animation: rise .7s cubic-bezier(0.16, 1, 0.3, 1) both; }
-.hero-in-2 { animation: rise .7s .15s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.hero-in { animation: rise .8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.hero-in-2 { animation: rise .8s .2s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.hero-in-3 { animation: rise .8s .4s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
+/* ===== Word Reveal Animation ===== */
+@keyframes wordReveal {
+  from { opacity: 0; transform: translateY(12px) translateX(-8px); filter: blur(4px); }
+  to { opacity: 1; transform: none; filter: blur(0); }
+}
+.word-reveal {
+  display: inline-block;
+  opacity: 0;
+  animation: wordReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ===== Tree Sway Animation ===== */
+@keyframes treeSway {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(0.5deg); }
+  75% { transform: rotate(-0.5deg); }
+}
+.tree-sway {
+  animation: treeSway 8s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
+
+/* ===== Tech Icon Float ===== */
+@keyframes techFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-3px) rotate(1deg); }
+  66% { transform: translateY(2px) rotate(-0.5deg); }
+}
+.tech-float {
+  animation: techFloat 6s ease-in-out infinite;
+}
+
+/* ===== Tree Shake ===== */
+@keyframes treeShake {
+  0% { transform: translateX(0) rotate(0deg); }
+  10% { transform: translateX(-8px) rotate(-2deg); }
+  20% { transform: translateX(7px) rotate(1.5deg); }
+  30% { transform: translateX(-5px) rotate(-1deg); }
+  40% { transform: translateX(4px) rotate(0.8deg); }
+  50% { transform: translateX(-3px) rotate(-0.5deg); }
+  60% { transform: translateX(2px) rotate(0.3deg); }
+  70% { transform: translateX(-1px) rotate(-0.1deg); }
+  80%, 100% { transform: translateX(0) rotate(0deg); }
+}
+.tree-shake {
+  animation: treeShake 1.2s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+  transform-origin: 50% 100%;
+}
+
+/* ===== Icon Falling Physics on Shake ===== */
+@keyframes iconFall {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  12% {
+    transform: translateY(-16px) rotate(-15deg) scale(1.08);
+  }
+  58% {
+    transform: translateY(var(--fall-dist, 360px)) rotate(var(--fall-rot, 75deg)) scale(0.92);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(calc(var(--fall-dist, 360px) - 22px)) rotate(calc(var(--fall-rot, 75deg) + 12deg)) scale(0.88);
+  }
+  80% {
+    transform: translateY(var(--fall-dist, 360px)) rotate(calc(var(--fall-rot, 75deg) + 24deg)) scale(0.85);
+    opacity: 0.95;
+  }
+  90% {
+    transform: translateY(var(--fall-dist, 360px)) scale(0.3);
+    opacity: 0;
+  }
+  94% {
+    transform: translateY(0) scale(0.1);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+.icon-fall {
+  animation: iconFall 2.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ===== Dash animation for connectors ===== */
 @keyframes dash {
   to { stroke-dashoffset: -16; }
 }
@@ -101,16 +203,79 @@ body::before {
   animation: dash 1.6s linear infinite;
 }
 
-/* Headings font styling */
+/* ===== Gradient text utility ===== */
+.gradient-text {
+  background: linear-gradient(135deg, #2A7BFF, #8B5CF6, #22D3EE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Glow dot ===== */
+.glow-dot {
+  box-shadow: 0 0 8px 2px rgba(42, 123, 255, 0.5), 0 0 16px 4px rgba(139, 92, 246, 0.3);
+}
+
+/* ===== Pulse ring ===== */
+@keyframes pulseRing {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2); opacity: 0; }
+}
+.pulse-ring {
+  animation: pulseRing 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ===== Headings font styling ===== */
 h1, h2, h3 {
-  font-family: "Fraunces Variable", Georgia, serif;
-  font-weight: 500;
+  font-family: "Instrument Serif", "Fraunces Variable", Georgia, serif;
+  font-weight: 400;
   letter-spacing: -0.02em;
 }
 
+/* Header glass effect */
 header.site-header {
-  background: rgba(9, 9, 11, 0.82);
+  background: rgba(9, 11, 16, 0.82);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--line);
+}
+
+/* ===== Fruit tooltip ===== */
+.fruit-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 8px 14px;
+  background: rgba(15, 17, 24, 0.95);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  backdrop-filter: blur(12px);
+  font-size: 12px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 20;
+}
+.fruit-parent:hover .fruit-tooltip,
+.fruit-parent:focus-within .fruit-tooltip {
+  opacity: 1;
+}
+
+/* ===== Marquee strip ===== */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.tech-strip-scroll {
+  animation: marqueeScroll 30s linear infinite;
+}
+.tech-strip-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* ===== Branch glow filter ===== */
+.branch-glow {
+  filter: drop-shadow(0 0 4px rgba(42, 123, 255, 0.15)) drop-shadow(0 0 8px rgba(139, 92, 246, 0.08));
 }

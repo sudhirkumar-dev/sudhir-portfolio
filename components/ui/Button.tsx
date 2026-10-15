@@ -6,7 +6,7 @@ const base =
 
 const variants = {
   primary:
-    "border-accent bg-accent text-zinc-950 font-semibold shadow-md shadow-accent/25 hover:bg-emerald-400 hover:border-emerald-400 hover:shadow-accent/40",
+    "border-accent bg-accent text-white font-semibold shadow-md shadow-accent/25 hover:bg-accent-bright hover:border-accent-bright hover:shadow-accent/40",
   outline:
     "border-line bg-surface/90 text-ink hover:border-line-bright hover:bg-surface-hover hover:text-white",
   secondary:
